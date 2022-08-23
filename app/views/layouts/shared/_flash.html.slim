@@ -1,0 +1,9 @@
+- if flash.any?
+  .container.my-2
+    - flash.each do |type, msg|
+        - if type == 'notice'
+           .alert.alert-info
+              = msg
+        - else
+            .alert.alert-danger
+              = msg
