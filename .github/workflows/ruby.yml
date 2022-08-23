@@ -1,0 +1,34 @@
+name: Test and Linter Check
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # env:
+    #   RAILS_ENV: test
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'yarn'
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Setup app
+        run: make setup
+        
+      - name: Linter check
+        run: make lint
+        
+      - name: Run Test
+        run: make test
