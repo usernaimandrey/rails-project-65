@@ -8,6 +8,13 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+if %w[development test].include? ENV['RAILS_ENV']
+  Dotenv::Railtie.load
+end
+
+GITHUB_CLIENT_ID = ENV.fetch('GITHUB_CLIENT_ID', nil)
+GITHUB_CLIENT_SECRET = ENV.fetch('GITHUB_CLIENT_SECRET', nil)
+
 module BulletinBoard
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.

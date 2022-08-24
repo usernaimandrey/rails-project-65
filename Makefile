@@ -1,4 +1,4 @@
-setup:
+setup: env-prepare
 	bin/setup
 	bin/rails db:seed
 
@@ -29,6 +29,9 @@ test:
 
 #аргумент commit=[commit_name,skip] skip - не обязателный
 push:
-	bin/rails git_push:commit$(commit) 
+	bin/rails git_push:commit$(commit)
+
+env-prepare:
+	bin/rails env:prepare
 
 .PHONY: test
