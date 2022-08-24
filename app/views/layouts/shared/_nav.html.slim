@@ -1,6 +1,6 @@
-container.mb-2.border-bottom.py-2
-  nav.navbar.navbar-expand-lg.navbar-light.bg-light
-    .container-fluid.m-2
+.container.mb-2
+  .d-flex.flex-wrap.align-items-center.py-2.border-bottom
+    .navbar.navbar-expand-md.navbar-light.me-auto
       = link_to root_path, class: 'navbar-brand text-primary'
         i.fa-solid.fa-home
-          span.m-2 = 'Home'
+          span.m-2 = t('.home')

@@ -1,0 +1,10 @@
+ru:
+  layouts:
+    application:
+      title: Доска обявлений
+    shared:
+      nav:
+        home: Доска обявлений
+      footer:
+        footer_title: "© Shlyapnikov Ltd, %{year}"
+        link: 'https://ru.hexlet.io/u/farmacevt'

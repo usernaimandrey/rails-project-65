@@ -1,0 +1,10 @@
+en:
+  layouts:
+    application:
+      title: Bulletin board
+    shared:
+      nav:
+        home: Bulletin board
+      footer:
+        footer_title: "© Shlyapnikov Ltd, %{year}"
+        link: 'https://ru.hexlet.io/u/farmacevt'
