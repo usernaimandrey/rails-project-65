@@ -2,7 +2,8 @@ doctype html
 html.h-100
   head
     title
-      = t('.title')
+      / provide :page_title, t('.title')
+      = current_title(yield(:page_title))
     meta[name="viewport" content="width=device-width,initial-scale=1"]
     = csrf_meta_tags
     = csp_meta_tag

@@ -4,3 +4,11 @@
       = link_to root_path, class: 'navbar-brand text-primary'
         i.fa-solid.fa-home
           span.m-2 = t('.home')
+
+    ul.nav.nav-pills
+      li.nav-item.me-2
+        = link_to t('.sign_out'), '#', method: :delete, class: 'nav-link link-dark text-danger'
+      li.nav-item.me-2
+        = link_to '#', class: 'nav-link link-dark'
+          i.fa-brands.fa-github
+          span.m-2 = t('.signup')

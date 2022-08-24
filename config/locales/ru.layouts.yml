@@ -5,6 +5,8 @@ ru:
     shared:
       nav:
         home: Доска обявлений
+        signup: Войти
+        sign_out: Выход
       footer:
         footer_title: "© Shlyapnikov Ltd, %{year}"
         link: 'https://ru.hexlet.io/u/farmacevt'
