@@ -364,7 +364,7 @@ DEPENDENCIES
   dotenv-rails
   faker!
   i18n-tasks
-  image_processing
+  image_processing (~> 1.0)
   jbuilder (~> 2.7)
   listen (~> 3.3)
   omniauth-github!

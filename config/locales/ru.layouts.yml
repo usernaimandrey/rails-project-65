@@ -1,10 +1,10 @@
 ru:
   layouts:
     application:
-      title: Доска обявлений
+      title: Доска объявлений
     shared:
       nav:
-        home: Доска обявлений
+        home: Доска объявлений
         main: Главная
         new_bulletin: Добавить
         signup: Войти

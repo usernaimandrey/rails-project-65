@@ -1,22 +1,23 @@
-.container.mb-2.position-nav
-  .d-flex.flex-wrap.align-items-center.py-2.border-bottom
-    .navbar.navbar-expand-md.navbar-light.me-auto
-      = link_to root_path, class: 'navbar-brand text-primary'
-        i.fa-solid.fa-home
-          span.m-2 = t('.home')
-      ul.nav.nav-pills
-        li.nav-item.me-2
-         = link_to t('.main'), root_path, class: 'navbar-brand text-primary'
+= provide :nav do
+  .container.mb-2.position-nav
+    .d-flex.flex-wrap.align-items-center.py-2.border-bottom
+      .navbar.navbar-expand-md.navbar-light.me-auto
+        = link_to root_path, class: 'navbar-brand text-primary'
+          i.fa-solid.fa-home
+            span.m-2 = t('.home')
+        ul.nav.nav-pills
+          li.nav-item.me-2
+           = nav_tab t('.main'), root_path, class: 'navbar-brand', current_page: current_page
+        ul.nav.nav-pills
+          - if signed_in?
+            li.nav-item.me-2
+              = nav_tab t('.new_bulletin'), new_bulletin_path, class: 'navbar-brand', current_page: current_page
+
       ul.nav.nav-pills
         - if signed_in?
           li.nav-item.me-2
-            = link_to t('.new_bulletin'), new_bulletin_path, class: 'navbar-brand text-primary'
-
-    ul.nav.nav-pills
-      - if signed_in?
+            = link_to t('.sign_out'), '#', method: :delete, class: 'nav-link link-dark text-danger'
         li.nav-item.me-2
-          = link_to t('.sign_out'), '#', method: :delete, class: 'nav-link link-dark text-danger'
-      li.nav-item.me-2
-        = link_to auth_request_path('github'), method: :post, class: 'nav-link link-dark'
-          i.fa-brands.fa-github
-          span.m-2 = t('.signup')
+          = link_to auth_request_path('github'), method: :post, class: 'nav-link link-dark'
+            i.fa-brands.fa-github
+            span.m-2 = t('.signup')
