@@ -3,7 +3,7 @@
 namespace :git_push do
   desc 'TODO'
   task :commit, %i[commit_name skip_ci] => :environment do |_t, args|
-    print "#{'#' * 5} Task Run! #{'#' * 5}"
+    print "#{'#' * 5} Task Run! #{'#' * 5}\n"
 
     abort 'Error! Name commit not passed!' if args[:commit_name].blank?
 
@@ -12,6 +12,6 @@ namespace :git_push do
     sh "git commit -m #{commit_name}"
     sh 'git push'
 
-    print "#{'#' * 5} Task Done! #{'#' * 5}"
+    print "#{'#' * 5} Task Done! #{'#' * 5}\n"
   end
 end

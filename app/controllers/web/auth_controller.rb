@@ -3,7 +3,7 @@
 module Web
   class AuthController < ApplicationController
     def callback
-      email = auth[:info][:name].downcase
+      email = auth[:info][:email].downcase
       name = auth[:info][:name]
       user = User.find_or_initialize_by(email: email, name: name)
 

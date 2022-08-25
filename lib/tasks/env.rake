@@ -20,6 +20,6 @@ namespace :env do
     gitignore.close
 
     print ".env file was generated and and added .gitignore\n"
-    print "#{'#' * 5} Task Done! #{'#' * 5}"
+    print "#{'#' * 5} Task Done! #{'#' * 5}\n"
   end
 end
