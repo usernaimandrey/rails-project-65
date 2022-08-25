@@ -1,9 +1,14 @@
 ru:
   web:
     bulletins:
+      list:
+        title: Обявления
       new:
         new_bulletin: Добавить обявление
         not_auth: Что бы добавить объявление надо зарегистрироваться
+        title: Создание объявления
       create:
         success: Обявление успешно созданно
         failure: 'Исправте следующие ошибки:'
+      show:
+        description: "Описание:"

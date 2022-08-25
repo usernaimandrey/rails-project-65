@@ -34,4 +34,8 @@ push:
 env-prepare:
 	bin/rails env:prepare
 
+assets-compile:
+	bin/rails assets:clobber
+	bin/rails assets:precompile
+
 .PHONY: test

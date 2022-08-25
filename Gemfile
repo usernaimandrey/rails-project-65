@@ -63,9 +63,15 @@ group :production do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'active_storage_validations'
+
+gem 'aws-sdk-s3'
+
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'i18n-tasks'
+
+gem 'image_processing'
 
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 

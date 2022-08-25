@@ -7,4 +7,9 @@ module ApplicationHelper
     base_title = t('.title')
     page_title.present? ? "#{base_title} | #{page_title}" : base_title
   end
+
+  def formatted_time_creation(to_time)
+    from_time = Time.current
+    distance_of_time_in_words(from_time, to_time)
+  end
 end

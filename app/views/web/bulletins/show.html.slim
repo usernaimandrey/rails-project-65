@@ -1,0 +1,19 @@
+- provide :page_title, @bulletin.title
+
+h2 = @bulletin.title
+
+.row
+  .col-6
+    p
+      strong.me-2 = t('.description')
+      br
+      = @bulletin.description
+
+  .col-6
+    - if @bulletin.image_attachment
+      = image_tag(@bulletin.image, class: 'img-fluid')
+
+hr
+
+.d-flex
+  = link_to t('back'), :back, class: 'btn btn-outline-primary'

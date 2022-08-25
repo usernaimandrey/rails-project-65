@@ -6,7 +6,13 @@ ru:
         title: Название
         description: Описание
         category: Категория
-
+        image: Фотография
+    errors:
+      models:
+        bulletin:
+          attributes:
+            image: 
+              blank: "не добавлена! Добавтье файл в формате: png jpg jpeg"
     models:
       bulletin: Объявление
       category: Категория
