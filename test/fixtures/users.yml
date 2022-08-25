@@ -1,9 +1,7 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 gogy:
   name: Gogy
   email: gogy@mail.ru
 
-vasy:
-  name: Vasy
-  email: vasy@gmail.com
+john:
+  name: John
+  email: john@gmail.com

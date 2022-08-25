@@ -1,5 +1,8 @@
 ru:
   web:
+    home:
+      index:
+        title: Доска объявлений
     auth:
       success: '%{name} успешно авторизован'
       failure: Ошибка авторизации

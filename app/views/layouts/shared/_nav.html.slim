@@ -4,6 +4,13 @@
       = link_to root_path, class: 'navbar-brand text-primary'
         i.fa-solid.fa-home
           span.m-2 = t('.home')
+      ul.nav.nav-pills
+        li.nav-item.me-2
+         = link_to t('.main'), root_path, class: 'navbar-brand text-primary'
+      ul.nav.nav-pills
+        - if signed_in?
+          li.nav-item.me-2
+            = link_to t('.new_bulletin'), new_bulletin_path, class: 'navbar-brand text-primary'
 
     ul.nav.nav-pills
       - if signed_in?

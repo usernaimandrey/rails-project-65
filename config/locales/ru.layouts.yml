@@ -5,6 +5,8 @@ ru:
     shared:
       nav:
         home: Доска обявлений
+        main: Главная
+        new_bulletin: Добавить
         signup: Войти
         sign_out: Выход
       footer:
