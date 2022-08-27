@@ -4,11 +4,11 @@ hr
 
 .x-grid
   - bulletins.each do |bulletin|
-      .card
+      .card.x-size
         - if bulletin.image_attachment
           div
-            = image_tag bulletin.image.variant(resize_to_limit: [200, 100]), class: 'img-thumbnail'
-        .card-body
+            = image_tag bulletin.image.variant(resize_to_limit: [200, 150]), size: '200x150', class: 'img-thumbnail'
+        .card-body.x-flex
           h5.card-title
             = link_to bulletin do
               span = bulletin.title.truncate(30)

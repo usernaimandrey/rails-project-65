@@ -11,4 +11,5 @@ ru:
         success: Обявление успешно созданно
         failure: 'Исправте следующие ошибки:'
       show:
-        description: "Описание:"
+        description: 'Описание:'
+        author: 'Автор:'

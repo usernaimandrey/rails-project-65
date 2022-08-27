@@ -4,7 +4,7 @@
 .x-grid {
   display: grid;
   align-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(295px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 20px;
 }
 
@@ -19,4 +19,15 @@
 
 .custom-mt {
   margin-top: 150px;
+}
+
+.x-size {
+  max-width: 200px;
+  min-height: 250px;
+}
+
+.x-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }

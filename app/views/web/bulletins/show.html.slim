@@ -1,5 +1,7 @@
 - provide :page_title, @bulletin.title
 
+= currently_at
+
 h2 = @bulletin.title
 
 .row
@@ -8,6 +10,11 @@ h2 = @bulletin.title
       strong.me-2 = t('.description')
       br
       = @bulletin.description
+
+    p
+      strong.me-2 = t('.author')
+      br
+      = @bulletin.user.name
 
   .col-6
     - if @bulletin.image_attachment
