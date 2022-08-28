@@ -10,5 +10,12 @@ Rails.application.routes.draw do
     resources :bulletins, only: %i[index show new create]
 
     resource :session, only: %i[destroy]
+
+    namespace :admin do
+      root 'home#index'
+
+      resources :bulletins, only: %i[index]
+      resources :categories, only: %i[index]
+    end
   end
 end

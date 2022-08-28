@@ -1,0 +1,20 @@
+- provide :page_title, t('.title')
+
+= currently_at t('admin')
+
+.d-flex
+  = render partial: 'web/admin/shared/nav'
+  .d-flex.flex-column.w-100
+    h2 = t('.admin_title')
+
+    table.table
+      thead
+        tr
+          th[scope="col"] = t('.name')
+          th[scope="col"] = t('.data')
+
+      tbody
+        - @bulletins.each do |b|
+          tr
+            td = link_to b.title, b, class: 'text-decoration-none'
+            td = formatted_time_creation(b.created_at)

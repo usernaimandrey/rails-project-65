@@ -4,6 +4,7 @@ ru:
       title: Доска объявлений
     shared:
       nav:
+        admin_nav: Админка
         home: Доска объявлений
         main: Главная
         new_bulletin: Добавить

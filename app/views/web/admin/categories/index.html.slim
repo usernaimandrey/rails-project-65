@@ -1,0 +1,20 @@
+- provide :page_title, t('.title')
+
+= currently_at t('admin')
+
+.d-flex
+  = render partial: 'web/admin/shared/nav'
+  .d-flex.flex-column.w-100
+    h2 = t('.admin_title')
+
+    table.table
+      thead
+        tr
+          th[scope="col"] = t('.id')
+          th[scope="col"] = t('.name')
+
+      tbody
+        - @categories.each do |c|
+          tr
+            td = c.id
+            td = c.name
