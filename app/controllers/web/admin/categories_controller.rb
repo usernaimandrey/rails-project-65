@@ -2,6 +2,8 @@
 
 module Web
   class Admin::CategoriesController < Admin::ApplicationController
+    after_action :verify_authorized, only: %i[index new create edit update destroy]
+
     def index
       @categories = Category.all.order(created_at: :asc)
       authorize([:admin, @categories])
@@ -41,6 +43,7 @@ module Web
 
     def destroy
       @category = Category.find(params[:id])
+      authorize([:admin, @category])
 
       if @category.destroy
         redirect_to admin_categories_path, notice: t('.success')

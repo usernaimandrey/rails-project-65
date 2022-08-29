@@ -12,4 +12,12 @@ class BulletinPolicy < ApplicationPolicy
   def destroy?
     user&.admin?
   end
+
+  def on_moderate?
+    user && record.draft?
+  end
+
+  def archive?
+    user && !record.archived?
+  end
 end

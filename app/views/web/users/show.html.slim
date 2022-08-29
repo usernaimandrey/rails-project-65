@@ -1,0 +1,28 @@
+- provide :page_title, t('.profile')
+
+= currently_at t('profile_title')
+
+h2 = t('.my_bulletins')
+
+= link_to t('.new'), new_bulletin_path, class: 'text-decoration-none'
+
+table.table
+  thead
+    tr
+      th[scope="col"] = t('.name')
+      th[scope="col"] = t('.state')
+      th[scope="col"] = t('.date')
+      th[scope="col"] = t('.actions')
+  tbody
+    - @bulletins.each do |b|
+        tr
+          td = b.title
+          td = b.aasm.human_state
+          td = distance_of_time_in_words(b.created_at, Time.current)
+          td
+            = link_to t('.show'), bulletin_path(b), class: 'me-1'
+            = link_to t('.edit'), edit_bulletin_path(b), class: 'me-1'
+            - if policy(b).on_moderate?
+              = link_to t('.on_moderate'), on_moderate_bulletin_path(b), method: :patch, class: 'me-1 text-danger'
+            - if policy(b).archive?
+              = link_to t('.archive'), archive_bulletin_path(b), method: :patch, class: 'me-1 text-danger'

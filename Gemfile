@@ -63,6 +63,8 @@ group :production do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'aasm'
+
 gem 'active_storage_validations'
 
 gem 'aws-sdk-s3'

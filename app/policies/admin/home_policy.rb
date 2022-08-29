@@ -2,7 +2,7 @@
 
 module Admin
   class HomePolicy < ApplicationPolicy
-    def index
+    def index?
       user&.admin?
     end
   end

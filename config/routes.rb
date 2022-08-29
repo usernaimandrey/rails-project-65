@@ -4,10 +4,17 @@ Rails.application.routes.draw do
   scope module: :web do
     root 'home#index'
 
+    get 'profile', to: 'users#show'
+
     post 'auth/:provider', to: 'auth#request', as: :auth_request
     get 'auth/:provider/callback', to: 'auth#callback', as: :callback_auth
 
-    resources :bulletins, only: %i[index show new create edit update]
+    resources :bulletins, only: %i[index show new create edit update] do
+      member do
+        patch :on_moderate
+        patch :archive
+      end
+    end
 
     resource :session, only: %i[destroy]
 

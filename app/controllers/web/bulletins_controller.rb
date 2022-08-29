@@ -5,7 +5,7 @@ module Web
     after_action :verify_authorized, only: %i[new create]
 
     def index
-      @bulletins = Bulletin.all.order(created_at: :desc)
+      @bulletins = Bulletin.published.order(created_at: :desc)
     end
 
     def show
@@ -22,11 +22,33 @@ module Web
       @bulletin = current_user&.bulletins&.build(bulletin_params)
 
       if @bulletin.save
-        redirect_to root_path, notice: t('.success')
+        redirect_to profile_path, notice: t('.success')
       else
         flash.now[:alert] = t('.failure')
         render :new, status: :unprocessable_entity
       end
+    end
+
+    def on_moderate
+      @bulletin = current_user&.bulletins&.find(params[:id])
+
+      if @bulletin.on_moderate!
+        flash[:notice] = t('.success')
+      else
+        flash[:alert] = t('.failure', state: @bulletin.aasm.human_state)
+      end
+      redirect_to profile_path
+    end
+
+    def archive
+      @bulletin = current_user&.bulletins&.find(params[:id])
+
+      if @bulletin.archive!
+        flash[:notice] = t('.success')
+      else
+        flash[:alert] = t('.failure', state: @bulletin.aasm.human_state)
+      end
+      redirect_to profile_path
     end
 
     def edit

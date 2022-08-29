@@ -1,0 +1,15 @@
+---
+ru:
+  web:
+    users:
+      show:
+        my_bulletins: Мои объявления
+        new: Новое объявление
+        name: Нзвание
+        state: Состояние
+        date: Дата публикции
+        on_moderate: На модерацию
+        actions: Действия
+        show: Показать
+        edit: Редактировать
+        archive: В архив

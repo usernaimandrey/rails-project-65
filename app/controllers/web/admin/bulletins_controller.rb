@@ -2,6 +2,8 @@
 
 module Web
   class Admin::BulletinsController < Admin::ApplicationController
+    after_action :verify_authorized, only: %i[index destroy]
+
     def index
       @bulletins = Bulletin.all.order(created_at: :desc)
       authorize([:admin, @bulletins])
