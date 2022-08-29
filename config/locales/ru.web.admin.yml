@@ -1,25 +1,10 @@
+---
 ru:
   web:
     admin:
-      bulletins:
-        index:
-          admin_title: Объявления
-          name: Имя
-          data: Дата публикации
-          title: Админ-Объявления
-          not_admin: Вы не администратор
-      categories:
-        index:
-          title: Админ-Категории
-          admin_title: Категории
-          name: Название
-          id: id
-          not_admin: Вы не администратор
       home:
         index:
           title: Админка
-          not_admin: Вы не администратор
-          not_auth: Вы не авторизованны
       shared:
         nav:
           all_bulletins: Все объявления

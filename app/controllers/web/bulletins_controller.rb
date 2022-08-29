@@ -25,7 +25,24 @@ module Web
         redirect_to root_path, notice: t('.success')
       else
         flash.now[:alert] = t('.failure')
-        render :new
+        render :new, status: :unprocessable_entity
+      end
+    end
+
+    def edit
+      @bulletin = current_user&.bulletins&.find(params[:id])
+      authorize @bulletin
+    end
+
+    def update
+      @bulletin = current_user&.bulletins&.find(params[:id])
+      authorize @bulletin
+
+      if @bulletin.update(bulletin_params)
+        redirect_to @bulletin, notice: t('.success')
+      else
+        flash.now[:alert] = t('.failure')
+        render :edit, status: :unprocessable_entity
       end
     end
 

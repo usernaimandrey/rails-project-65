@@ -1,0 +1,17 @@
+---
+ru:
+  web:
+    admin:
+      bulletins:
+        index:
+          admin_title: Объявления
+          name: Имя
+          data: Дата публикации
+          title: Админ-Объявления
+          destroy: Удалить
+          action: Действие
+          question: Вы уверенны?
+        destroy:
+          success: Объявление успешно удаленно!
+
+      

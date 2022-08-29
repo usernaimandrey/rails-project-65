@@ -19,9 +19,9 @@
             = nav_tab t('.admin_nav'), admin_root_path, class: 'navbar-brand', current_page: current_page
         - if signed_in?
           li.nav-item.me-2
-            = link_to t('.sign_out'), session_path, method: :delete, class: 'nav-link link-dark text-danger'
+            = link_to t('.sign_out'), session_path, method: :delete, class: 'navbar-brand text-danger'
         - else
           li.nav-item.me-2
-            = link_to auth_request_path('github'), method: :post, class: 'nav-link link-dark'
+            = link_to auth_request_path('github'), method: :post, class: 'navbar-brand link-dark'
               i.fa-brands.fa-github
               span.m-2 = t('.signup')

@@ -2,7 +2,11 @@
 
 module Admin
   class BulletinPolicy < ApplicationPolicy
-    def index
+    def index?
+      user&.admin?
+    end
+
+    def destroy?
       user&.admin?
     end
   end

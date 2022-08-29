@@ -12,9 +12,12 @@
         tr
           th[scope="col"] = t('.name')
           th[scope="col"] = t('.data')
+          th[scope="col"] = t('.action')
 
       tbody
         - @bulletins.each do |b|
           tr
             td = link_to b.title, b, class: 'text-decoration-none'
             td = formatted_time_creation(b.created_at)
+            td
+              = link_to t('.destroy'), admin_bulletin_path(b), method: :delete, data: { confirm: t('.question') }, class: 'me-1 text-danger'

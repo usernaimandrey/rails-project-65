@@ -1,0 +1,25 @@
+---
+ru:
+  web:
+    admin:
+      categories:
+        index:
+          edit: Редактировать
+          destroy: Удалить
+          title: Админ-Категории
+          admin_title: Категории
+          name: Название
+          id: id
+          question: "Вы уверенны?"
+          add_category: Добавить категорию
+          action: Действие
+        create:
+          success: Категория успешно созданна!
+        update:
+          success: Категория успешно обновленна!
+        destroy:
+          failure: Вы не админестратор!
+          success:  Категория успешно удалена!
+        new:
+          title: Новая категория
+          

@@ -12,9 +12,9 @@ module Web
     def user_not_auth_or_not_admin(exception)
       user = exception.policy.user
       if user.nil?
-        flash[:alert] = t('.not_auth')
+        flash[:alert] = t('not_auth')
       else
-        flash[:aler] = t('.not_admin')
+        flash[:aler] = t('not_admin')
       end
       redirect_to root_path
     end

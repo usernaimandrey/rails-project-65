@@ -1,15 +1,18 @@
-h3 = t('.title')
+-if bulletins.present?
+  h3 = t('.title')
 
-hr
+  hr
 
-.x-grid
-  - bulletins.each do |bulletin|
-      .card.x-size
-        - if bulletin.image_attachment
-          div
-            = image_tag bulletin.image.variant(resize_to_limit: [200, 150]), size: '200x150', class: 'img-thumbnail'
-        .card-body.x-flex
-          h5.card-title
-            = link_to bulletin do
-              span = bulletin.title.truncate(30)
-          div = formatted_time_creation(bulletin.created_at)
+  .x-grid
+    - bulletins.each do |bulletin|
+        .card.x-size
+          - if bulletin.image_attachment
+            div
+              = image_tag bulletin.image.variant(resize_to_limit: [200, 150]), size: '200x150', class: 'img-thumbnail'
+          .card-body.x-flex
+            h5.card-title
+              = link_to bulletin do
+                span = bulletin.title.truncate(30)
+            div = formatted_time_creation(bulletin.created_at)
+- else
+  h3 = t('.no_bulletins')

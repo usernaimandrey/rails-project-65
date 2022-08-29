@@ -7,14 +7,19 @@
   .d-flex.flex-column.w-100
     h2 = t('.admin_title')
 
+    = link_to t('.add_category'), new_admin_category_path, calss: 'btn btn-primary'
+
     table.table
       thead
         tr
           th[scope="col"] = t('.id')
           th[scope="col"] = t('.name')
-
+          th[scope="col"] = t('.action')
       tbody
         - @categories.each do |c|
           tr
             td = c.id
             td = c.name
+            td
+              = link_to t('.edit'), edit_admin_category_path(c), class: 'me-1'
+              = link_to t('.destroy'), admin_category_path(c), method: :delete, data: { confirm: t('.question') }, class: 'me-1 text-danger'
