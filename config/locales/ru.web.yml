@@ -4,5 +4,5 @@ ru:
       index:
         title: Доска объявлений
     auth:
-      success: '%{name} успешно авторизован'
       failure: Ошибка авторизации
+      success: '%{name} успешно авторизован'

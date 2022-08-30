@@ -2,7 +2,7 @@
 
 module Web
   class BulletinsController < ApplicationController
-    after_action :verify_authorized, only: %i[new create]
+    after_action :verify_authorized, only: %i[new create edit update on_moderate archive]
 
     def index
       @bulletins = Bulletin.published.order(created_at: :desc)
@@ -31,24 +31,28 @@ module Web
 
     def on_moderate
       @bulletin = current_user&.bulletins&.find(params[:id])
+      authorize @bulletin
 
       if @bulletin.on_moderate!
         flash[:notice] = t('.success')
+        redirect_to profile_path
       else
         flash[:alert] = t('.failure', state: @bulletin.aasm.human_state)
+        redirect_to profile_path, status: :unprocessable_entity
       end
-      redirect_to profile_path
     end
 
     def archive
       @bulletin = current_user&.bulletins&.find(params[:id])
+      authorize @bulletin
 
       if @bulletin.archive!
         flash[:notice] = t('.success')
+        redirect_to profile_path
       else
         flash[:alert] = t('.failure', state: @bulletin.aasm.human_state)
+        redirect_to profile_path, status: :unprocessable_entity
       end
-      redirect_to profile_path
     end
 
     def edit

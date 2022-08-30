@@ -3,7 +3,6 @@ ru:
   activerecord:
     attributes:
       bulletin:
-        title: Название
         description: Описание
         category: Категория
         image: Фотография
@@ -11,8 +10,9 @@ ru:
         state/draft: Черновик
         state/under_moderation: На модерации
         state/published: Опубликованно
-        state/rejected: Откланенно
+        state/rejected: Отклоненно
         state/archived: В архиве
+        title: Название
       category:
         name: Название
     errors:

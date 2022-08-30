@@ -11,13 +11,18 @@
       thead
         tr
           th[scope="col"] = t('.name')
+          th[scope="col"] = t('.state')
           th[scope="col"] = t('.data')
-          th[scope="col"] = t('.action')
+          th[scope="col"] = t('.actions')
 
       tbody
         - @bulletins.each do |b|
           tr
             td = link_to b.title, b, class: 'text-decoration-none'
+            td = b.aasm.human_state
             td = formatted_time_creation(b.created_at)
             td
+              = link_to t('.show'), bulletin_path(b), class: 'me-1'
               = link_to t('.destroy'), admin_bulletin_path(b), method: :delete, data: { confirm: t('.question') }, class: 'me-1 text-danger'
+              - unless b.archived?
+                = link_to t('.archive'), archive_admin_bulletin_path(b), method: :patch, data: { confirm: t('.question') }, class: 'me-1 text-danger'

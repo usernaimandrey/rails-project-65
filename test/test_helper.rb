@@ -31,11 +31,11 @@ class ActionDispatch::IntegrationTest
     get callback_auth_url('github')
   end
 
-  def signed_in?
-    session[:user_id].present? && current_user.present?
-  end
+  # def signed_in?
+  #   session[:user_id].present? && current_user.present?
+  # end
 
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id])
-  end
+  # def current_user
+  #   @current_user ||= User.find_by(id: session[:user_id])
+  # end
 end

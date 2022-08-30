@@ -1,9 +1,9 @@
 ---
 ru:
+  admin: Админка
+  back: Назат
   main: Главная
   new: Добавить
-  admin: Админка
   not_admin: Вы не администратор
   not_auth: Вы не авторизованны
-  back: Назат
   profile_title: Мои объявления

@@ -4,8 +4,19 @@ ru:
     admin:
       home:
         index:
+          admin_title: Объявления на модерации
+          actions: Дейтвия
+          archived: Архивировать
+          data: Дата публикуции
+          published: Опубликовать
+          name: Название
+          rejected: Отклонить
           title: Админка
+          question: Вы уверенны?
+          
+
       shared:
         nav:
           all_bulletins: Все объявления
           all_categories: Все ктегории
+          moderation: Объявления на модерации

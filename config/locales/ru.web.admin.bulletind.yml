@@ -3,15 +3,27 @@ ru:
   web:
     admin:
       bulletins:
+        archive:
+          failure: "Не возможно сменить статус с %{state} на 'В Архиве'"
+          success: Объявление зааргивированно
         index:
+          actions: Действиея
           admin_title: Объявления
-          name: Имя
+          archive: Архивировать
           data: Дата публикации
-          title: Админ-Объявления
           destroy: Удалить
-          action: Действие
+          name: Имя
+          show: Показать
+          state: Состояние
+          title: Админ-Объявления
           question: Вы уверенны?
         destroy:
           success: Объявление успешно удаленно!
+        publish:
+          success: Объявление опубликованно!
+          failure: "Не возможно сменить статус с %{state} на 'Опубликованно'"
+        reject:
+          success: Объявление успешно отклоненно!
+          failure: "Не возможно сменить статус с %{state} на 'Отклоненно'"
 
       

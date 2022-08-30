@@ -3,13 +3,15 @@ ru:
   web:
     users:
       show:
-        my_bulletins: Мои объявления
-        new: Новое объявление
-        name: Нзвание
-        state: Состояние
-        date: Дата публикции
-        on_moderate: На модерацию
         actions: Действия
-        show: Показать
-        edit: Редактировать
         archive: В архив
+        date: Дата публикции
+        edit: Редактировать
+        on_moderate: На модерацию
+        my_bulletins: Мои объявления
+        name: Нзвание
+        profile: Профиль
+        new: Новое объявление
+        show: Показать
+        state: Состояние
+        question: Вы уверенны?

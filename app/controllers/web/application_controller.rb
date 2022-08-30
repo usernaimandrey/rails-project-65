@@ -3,6 +3,7 @@
 module Web
   class ApplicationController < ApplicationController
     include AuthConcern
+    include AdminConcern
     include Pundit::Authorization
 
     rescue_from Pundit::NotAuthorizedError, with: :user_not_auth_or_not_admin unless Rails.env.test?

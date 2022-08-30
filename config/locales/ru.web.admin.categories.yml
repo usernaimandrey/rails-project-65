@@ -4,22 +4,22 @@ ru:
     admin:
       categories:
         index:
-          edit: Редактировать
-          destroy: Удалить
-          title: Админ-Категории
-          admin_title: Категории
-          name: Название
-          id: id
-          question: "Вы уверенны?"
-          add_category: Добавить категорию
           action: Действие
+          add_category: Добавить категорию
+          admin_title: Категории
+          destroy: Удалить
+          edit: Редактировать
+          id: id
+          name: Название
+          title: Админ-Категории
+          question: "Вы уверенны?"
         create:
           success: Категория успешно созданна!
-        update:
-          success: Категория успешно обновленна!
         destroy:
           failure: Вы не админестратор!
           success:  Категория успешно удалена!
         new:
           title: Новая категория
+        update:
+          success: Категория успешно обновленна!
           

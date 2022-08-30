@@ -9,15 +9,11 @@ class BulletinPolicy < ApplicationPolicy
     user&.admin? || record.user == user
   end
 
-  def destroy?
-    user&.admin?
-  end
-
   def on_moderate?
-    user && record.draft?
+    user && record.user == user
   end
 
   def archive?
-    user && !record.archived?
+    user
   end
 end
