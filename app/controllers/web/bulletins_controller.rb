@@ -5,7 +5,8 @@ module Web
     after_action :verify_authorized, only: %i[new create edit update on_moderate archive]
 
     def index
-      @bulletins = Bulletin.published.order(created_at: :desc)
+      @search_bulletins = Bulletin.ransack(params[:search_bulletins])
+      @bulletins = @search_bulletins.result.published.order(created_at: :desc)
     end
 
     def show

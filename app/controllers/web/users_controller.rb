@@ -5,7 +5,8 @@ module Web
     after_action :verify_authorized, only: %i[show]
 
     def show
-      @bulletins = current_user&.bulletins&.order(created_at: :desc)
+      @search_bulletins = current_user&.bulletins&.ransack(params[:search_bulletins])
+      @bulletins = @search_bulletins&.result&.order(created_at: :desc)
       authorize(:user)
     end
   end

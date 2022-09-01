@@ -6,6 +6,7 @@
   = render partial: 'web/admin/shared/nav'
   .d-flex.flex-column.w-100
     h2 = t('.admin_title')
+    = render partial: 'web/shared/search_form', locals: { query: @search_bulletins, url: admin_bulletins_path }
 
     table.table
       thead

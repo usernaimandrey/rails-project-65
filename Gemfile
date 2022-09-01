@@ -83,6 +83,8 @@ gem 'pundit'
 
 gem 'rails-i18n'
 
+gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'main'
+
 gem 'rollbar'
 
 gem 'simple_form'

@@ -6,3 +6,10 @@ ru:
     auth:
       failure: Ошибка авторизации
       success: '%{name} успешно авторизован'
+    shared:
+      search_form:
+        button: Найти
+        reset: Сбросить
+        categories: Поиск по категориям
+        name: Поиск по названию объявления
+        states: Поиск по состоянию

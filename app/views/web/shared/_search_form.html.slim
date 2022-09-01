@@ -1,0 +1,23 @@
+.p-3.bg-light
+  = search_form_for query, url: url do |f|
+    .row.my-2
+      .col-6
+        = f.input :title_i_cont, input_html: { id: 'q_title_cont', type: 'search' }, label: false
+        = f.hint t('.name')
+      - if current_page?(root_path) || current_page?(bulletins_path)
+        .col-4
+          = f.input :category_name_eq, as: :select,
+                                       collection: Category.all.map(&:name),
+                                       label: false
+          = f.hint t('.categories')
+      - else
+        .col-4
+          = f.input :state_eq, as: :select,
+                              collection: Bulletin.aasm.states.map { |s| [s.human_name, s.name] },
+                              label: false
+          = f.hint t('.states')
+
+      .col-2
+        = f.button :submit, value: t('.button'), class: 'btn btn-primary mb-1'
+
+        = link_to t('.reset'), url_for, class: 'btn btn-outline-primary'

@@ -5,7 +5,8 @@ module Web
     after_action :verify_authorized, only: %i[index destroy archive publish]
 
     def index
-      @bulletins = Bulletin.all.order(created_at: :desc)
+      @search_bulletins = Bulletin.ransack(params[:search_bulletins])
+      @bulletins = @search_bulletins.result.order(created_at: :desc)
       authorize([:admin, @bulletins])
     end
 

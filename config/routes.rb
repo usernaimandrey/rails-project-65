@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   scope module: :web do
-    root 'home#index'
+    root 'bulletins#index'
 
     get 'profile', to: 'users#show'
 

@@ -3,7 +3,7 @@
 = currently_at t('profile_title')
 
 h2 = t('.my_bulletins')
-
+= render partial: 'web/shared/search_form', locals: { query: @search_bulletins, url: profile_path }
 = link_to t('.new'), new_bulletin_path, class: 'text-decoration-none'
 
 table.table

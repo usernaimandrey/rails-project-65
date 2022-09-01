@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/activerecord-hackery/ransack.git
+  revision: eaabf74f573a026a579117c7f31cb2a5ab8d9935
+  branch: main
+  specs:
+    ransack (3.2.1)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
+
+GIT
   remote: https://github.com/faker-ruby/faker.git
   revision: 4ffc714029c1fe22eb0cf091295afa26cb5fa70c
   branch: master
@@ -380,6 +390,7 @@ DEPENDENCIES
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4, >= 6.1.4.4)
   rails-i18n
+  ransack!
   rollbar
   rubocop
   rubocop-performance
