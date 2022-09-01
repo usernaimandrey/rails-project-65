@@ -2,7 +2,7 @@
 
 module AdminConcern
   def current_page
-    page = request.referer.split('/').last
+    page = request&.referer&.split('/')&.last
 
     return admin_bulletins_path if page == 'bulletins'
 

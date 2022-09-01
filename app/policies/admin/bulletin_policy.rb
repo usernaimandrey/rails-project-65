@@ -11,15 +11,15 @@ module Admin
     end
 
     def archive?
-      user&.admin?
+      user&.admin? && !record.archived?
     end
 
     def publish?
-      user&.admin?
+      user&.admin? && record.under_moderation?
     end
 
     def reject?
-      user&.admin?
+      user&.admin? && record.under_moderation?
     end
   end
 end

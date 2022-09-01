@@ -1,9 +1,9 @@
-gogy:
-  name: Gogy
-  email: gogy@mail.ru
-  admin: false
+andrey:
+  name: Andrey
+  email: andrey@mail.ru
+  admin: true
 
 john:
   name: John
   email: john@gmail.com
-  admin: true
+  admin: false

@@ -1,11 +1,34 @@
-one:
-  title: MyString
-  description: MyText
-  category: one
-  user: gogy
+draft:
+  title: Машина
+  description: Не бита, не крашенна
+  category: two
+  user: andrey
+  state: draft
 
-two:
-  title: MyString
-  description: MyText
+under_moderation:
+  title: Хомяк
+  description: Хомяк породистый
+  category: one
+  user: john
+  state: under_moderation
+
+published:
+  title: Ботинки
+  description: Новые ботинки
+  category: three
+  user: andrey
+  state: published
+
+rejected:
+  title: Машина
+  description: жигуль
+  category: three
+  user: andrey
+  state: rejected
+
+archived:
+  title: Машина
+  description: жигуль 2109
   category: two
   user: john
+  state: archived

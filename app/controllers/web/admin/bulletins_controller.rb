@@ -13,6 +13,7 @@ module Web
       @bulletin = Bulletin.find(params[:id])
       authorize([:admin, @bulletin])
 
+      @bulletin.image.purge
       @bulletin.destroy
       redirect_to admin_bulletins_path, notice: t('.success')
     end

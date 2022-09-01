@@ -6,14 +6,14 @@ class BulletinPolicy < ApplicationPolicy
   end
 
   def update?
-    user&.admin? || record.user == user
-  end
-
-  def on_moderate?
     user && record.user == user
   end
 
+  def on_moderate?
+    user && record.user == user && (record.draft? || record.rejected?)
+  end
+
   def archive?
-    user
+    user && record.user == user && !record.archived?
   end
 end

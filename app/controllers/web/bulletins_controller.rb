@@ -9,7 +9,7 @@ module Web
     end
 
     def show
-      @bulletin = Bulletin.find(params[:id])
+      @bulletin = set_bulletin
     end
 
     def new
@@ -30,7 +30,7 @@ module Web
     end
 
     def on_moderate
-      @bulletin = current_user&.bulletins&.find(params[:id])
+      @bulletin = set_bulletin
       authorize @bulletin
 
       if @bulletin.on_moderate!
@@ -43,7 +43,7 @@ module Web
     end
 
     def archive
-      @bulletin = current_user&.bulletins&.find(params[:id])
+      @bulletin = set_bulletin
       authorize @bulletin
 
       if @bulletin.archive!
@@ -56,16 +56,16 @@ module Web
     end
 
     def edit
-      @bulletin = current_user&.bulletins&.find(params[:id])
+      @bulletin = set_bulletin
       authorize @bulletin
     end
 
     def update
-      @bulletin = current_user&.bulletins&.find(params[:id])
+      @bulletin = set_bulletin
       authorize @bulletin
 
       if @bulletin.update(bulletin_params)
-        redirect_to @bulletin, notice: t('.success')
+        redirect_to profile_path, notice: t('.success')
       else
         flash.now[:alert] = t('.failure')
         render :edit, status: :unprocessable_entity
@@ -76,6 +76,10 @@ module Web
 
     def bulletin_params
       params.require(:bulletin).permit(:title, :description, :category_id, :image)
+    end
+
+    def set_bulletin
+      Bulletin.find(params[:id])
     end
   end
 end

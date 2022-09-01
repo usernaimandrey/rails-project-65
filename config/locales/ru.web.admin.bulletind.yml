@@ -5,7 +5,7 @@ ru:
       bulletins:
         archive:
           failure: "Не возможно сменить статус с %{state} на 'В Архиве'"
-          success: Объявление зааргивированно
+          success: Объявление заарxивированно
         index:
           actions: Действиея
           admin_title: Объявления

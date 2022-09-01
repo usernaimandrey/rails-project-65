@@ -22,7 +22,7 @@ table.table
           td
             = link_to t('.show'), bulletin_path(b), class: 'me-1'
             = link_to t('.edit'), edit_bulletin_path(b), class: 'me-1'
-            - if b.draft? || b.rejected?
+            - if policy(b).on_moderate?
               = link_to t('.on_moderate'), on_moderate_bulletin_path(b), method: :patch, data: { confirm: t('.question') }, class: 'me-1 text-danger'
-            - unless b.archived?
+            - if policy(b).archive?
               = link_to t('.archive'), archive_bulletin_path(b), method: :patch, data: { confirm: t('.question') }, class: 'me-1 text-danger'
