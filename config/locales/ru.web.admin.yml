@@ -6,11 +6,11 @@ ru:
         index:
           admin_title: Объявления на модерации
           actions: Дейтвия
-          archived: Архивировать
+          archived: В архив
           data: Дата публикуции
           published: Опубликовать
           name: Название
-          rejected: Отклонить
+          rejected: Вернуть
           title: Админка
           question: Вы уверенны?
           

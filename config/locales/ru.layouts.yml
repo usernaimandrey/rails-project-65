@@ -10,7 +10,7 @@ ru:
         new_bulletin: Добавить
         profile: Мои объявления
         signup: Войти
-        sign_out: Выход
+        sign_out: Выйти
       footer:
         footer_title: "© Shlyapnikov Ltd, %{year}"
         link: 'https://ru.hexlet.io/u/farmacevt'
