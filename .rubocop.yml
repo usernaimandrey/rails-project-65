@@ -40,6 +40,3 @@ Style/AsciiComments:
 
 Rails/FilePath:
   EnforcedStyle: slashes
-
-Metrics/ClassLength:
-  Enabled: false

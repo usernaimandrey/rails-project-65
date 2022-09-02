@@ -16,14 +16,8 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'user shouls get index' do
+  test 'user not shouls get index' do
     sign_in @user
-    get admin_bulletins_path
-
-    assert_redirected_to root_path
-  end
-
-  test 'guest shouls get index' do
     get admin_bulletins_path
 
     assert_redirected_to root_path
@@ -46,40 +40,6 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert(@bulletin)
   end
 
-  test 'guest can not destroy bulletin' do
-    delete admin_bulletin_path(@bulletin)
-    @bulletin.reload
-
-    assert_redirected_to root_path
-    assert(@bulletin)
-  end
-
-  test 'admin can archived bulletin' do
-    sign_in @admin
-    assert(@bulletin.draft?)
-    patch archive_admin_bulletin_path(@bulletin)
-    @bulletin.reload
-
-    assert(@bulletin.archived?)
-  end
-
-  test 'user can not archived bulletin' do
-    sign_in @user
-    assert(@bulletin.draft?)
-    patch archive_admin_bulletin_path(@bulletin)
-    @bulletin.reload
-
-    assert(@bulletin.draft?)
-  end
-
-  test 'guest can not archived bulletin' do
-    assert(@bulletin.draft?)
-    patch archive_admin_bulletin_path(@bulletin)
-    @bulletin.reload
-
-    assert(@bulletin.draft?)
-  end
-
   test 'admin can rejected' do
     sign_in @admin
     bulletin = bulletins(:under_moderation)
@@ -98,14 +58,6 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert(bulletin.under_moderation?)
   end
 
-  test 'guest can not rejected' do
-    bulletin = bulletins(:under_moderation)
-    patch reject_admin_bulletin_path(bulletin)
-    bulletin.reload
-
-    assert(bulletin.under_moderation?)
-  end
-
   test 'admin can published' do
     sign_in @admin
     bulletin = bulletins(:under_moderation)
@@ -117,14 +69,6 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
 
   test 'user can not published' do
     sign_in @user
-    bulletin = bulletins(:under_moderation)
-    patch publish_admin_bulletin_path(bulletin)
-    bulletin.reload
-
-    assert(bulletin.under_moderation?)
-  end
-
-  test 'guest can not published' do
     bulletin = bulletins(:under_moderation)
     patch publish_admin_bulletin_path(bulletin)
     bulletin.reload

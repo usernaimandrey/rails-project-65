@@ -18,10 +18,4 @@ class Web::Admin::HomeControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :redirect
   end
-
-  test 'guest should not get index' do
-    get admin_root_path
-
-    assert_response :redirect
-  end
 end
