@@ -1,4 +1,8 @@
 = currently_at t('main')
 
 = render partial: 'web/shared/search_form', locals: { query: @search_bulletins, url: bulletins_path }
+
 = render partial: 'web/bulletins/list', locals: { bulletins: @bulletins }
+
+.container.m-2
+  = paginate @bulletins, views_prefix: 'web'

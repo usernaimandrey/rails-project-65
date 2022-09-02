@@ -23,3 +23,6 @@
               = link_to t('.published'), publish_admin_bulletin_path(b), method: :patch, data: { confirm: t('.question') }, class: 'me-1'
               = link_to t('.rejected'), reject_admin_bulletin_path(b), method: :patch, data: { confirm: t('.question') }, class: 'me-1'
               = link_to t('.archived'), archive_admin_bulletin_path(b), method: :patch, data: { confirm: t('.question') }, class: 'me-1 text-danger'
+
+.container.m-2
+  = paginate @bulletins, views_prefix: 'web'

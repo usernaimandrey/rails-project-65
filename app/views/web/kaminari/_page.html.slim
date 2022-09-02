@@ -1,0 +1,6 @@
+li[class="page-item page#{' active' if page.current?}"]
+  - if page.current?
+    = tag.span page, class: 'page-link'
+  - else
+    = link_to page, url,
+      remote: remote, rel: page.rel, class: 'page-link'

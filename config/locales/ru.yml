@@ -7,3 +7,9 @@ ru:
   not_admin: Вы не администратор
   not_auth: Вы не авторизованны
   profile_title: Мои объявления
+  views:
+    pagination:
+      first: Первая
+      last: Последняя
+      previous: "<<"
+      next: ">>"

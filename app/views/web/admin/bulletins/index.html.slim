@@ -27,3 +27,6 @@
               = link_to t('.destroy'), admin_bulletin_path(b), method: :delete, data: { confirm: t('.question') }, class: 'me-1 text-danger'
               - if policy(b).archive?
                 = link_to t('.archive'), archive_admin_bulletin_path(b), method: :patch, data: { confirm: t('.question') }, class: 'me-1 text-danger'
+
+.container.m-2
+  = paginate @bulletins, views_prefix: 'web'

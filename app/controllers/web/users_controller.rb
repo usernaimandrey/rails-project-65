@@ -6,7 +6,10 @@ module Web
 
     def show
       @search_bulletins = current_user&.bulletins&.ransack(params[:search_bulletins])
-      @bulletins = @search_bulletins&.result&.order(created_at: :desc)
+      @bulletins = @search_bulletins
+                   &.result
+                   &.order(created_at: :desc)
+                   &.page(params[:page])
       authorize(:user)
     end
   end

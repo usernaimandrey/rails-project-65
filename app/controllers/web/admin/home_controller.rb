@@ -3,7 +3,10 @@
 module Web
   class Admin::HomeController < Admin::ApplicationController
     def index
-      @bulletins = Bulletin.under_moderation.order(created_at: :desc)
+      @bulletins = Bulletin
+                   .under_moderation
+                   .order(created_at: :desc)
+                   .page(params[:page])
       authorize(%i[admin home])
     end
   end

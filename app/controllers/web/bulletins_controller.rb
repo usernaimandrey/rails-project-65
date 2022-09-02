@@ -6,7 +6,10 @@ module Web
 
     def index
       @search_bulletins = Bulletin.ransack(params[:search_bulletins])
-      @bulletins = @search_bulletins.result.published.order(created_at: :desc)
+      @bulletins = @search_bulletins
+                   .result
+                   .published.order(created_at: :desc)
+                   .page(params[:page])
     end
 
     def show

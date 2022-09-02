@@ -1,0 +1,4 @@
+li.page-item
+  span.last
+    == link_to_unless current_page.last?, t('views.pagination.last'), url, remote: remote, class: 'page-link'
+'
