@@ -2,13 +2,13 @@ h3 = t('.title')
 
 hr
 
-.x-grid
+.row.mt-2
   - bulletins.each do |bulletin|
-      .card.x-size
+    .col-3.pt-2
+      .card.shadow-sm
         - if bulletin.image_attachment
-          div
-            = image_tag bulletin.image.variant(resize_to_limit: [200, 150]), size: '200x150', class: 'img-thumbnail'
-        .card-body.x-flex
+          = image_tag bulletin.image.variant(resize_to_limit: [200, 100]), class: 'card-img-top x-object-fit-cover'
+        .card-body
           h5.card-title
             = link_to bulletin do
               span = bulletin.title.truncate(30)

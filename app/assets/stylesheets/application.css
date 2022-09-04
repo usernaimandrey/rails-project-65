@@ -1,33 +1,9 @@
 /* = require_tree . */
 /* = require_self */
 
-.x-grid {
-  display: grid;
-  align-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 20px;
-}
-
-.position-nav {
-  position: fixed;
-  z-index: 1;
-
-  min-width: 100%;
-
-  background-color: #e3f2fd;
-}
-
-.custom-mt {
-  margin-top: 150px;
-}
-
-.x-size {
-  max-width: 200px;
-  min-height: 250px;
-}
-
-.x-flex {
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
+.x-object-fit-cover {
+  height: 200px;
+  display: block;
+  object-fit: fill;
+  margin: 0 auto;
 }
