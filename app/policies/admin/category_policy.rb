@@ -15,7 +15,7 @@ module Admin
     end
 
     def destroy?
-      user&.admin?
+      user&.admin? && record.bulletins.blank?
     end
   end
 end

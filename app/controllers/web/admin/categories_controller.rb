@@ -45,7 +45,7 @@ module Web
       @category = Category.find(params[:id])
       authorize([:admin, @category])
 
-      if @category.bulletins.blank? && @category.destroy
+      if @category.destroy
         redirect_to admin_categories_path, notice: t('.success')
       else
         flash[:alert] = t('.failure')

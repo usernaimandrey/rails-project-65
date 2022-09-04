@@ -11,13 +11,14 @@ module Web
     private
 
     def user_not_auth_or_not_admin(exception)
-      user = exception.policy.user
-      if user.nil?
-        flash[:alert] = t('not_auth')
+      user = exception&.policy&.user
+      policy_name = exception.policy.class.to_s.underscore
+      flash[:alert] = t "#{policy_name}.#{exception.query}", scope: 'pundit', default: :default
+      if user&.admin
+        redirect_to current_page
       else
-        flash[:aler] = t('not_admin')
+        redirect_to root_path
       end
-      redirect_to root_path
     end
   end
 end
