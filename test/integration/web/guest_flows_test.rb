@@ -13,6 +13,12 @@ class Web::GuestFlowsTest < ActionDispatch::IntegrationTest
     }
   end
 
+  test 'get show only published bulletin' do
+    get bulletin_path(@bulletin)
+
+    assert_redirected_to root_path
+  end
+
   test 'guest not should get new' do
     get new_bulletin_path
 

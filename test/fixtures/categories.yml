@@ -6,3 +6,6 @@ two:
 
 three:
   name: Одежда
+
+no_relation:
+  name: Еда

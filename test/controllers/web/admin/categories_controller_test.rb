@@ -93,10 +93,19 @@ class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
 
   test 'admin can destroy category' do
     sign_in @admin
+    category = categories(:no_relation)
+    delete admin_category_path(category)
+
+    assert_redirected_to admin_categories_path
+    assert_not(Category.find_by(name: category.name))
+  end
+
+  test "can't delete a category that has a relation" do
+    sign_in @admin
     delete admin_category_path(@category)
 
     assert_redirected_to admin_categories_path
-    assert_not(Category.find_by(name: @category.name))
+    assert(Category.find_by(name: @category.name))
   end
 
   test 'user can not destroy category' do

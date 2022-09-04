@@ -45,11 +45,11 @@ module Web
       @category = Category.find(params[:id])
       authorize([:admin, @category])
 
-      if @category.destroy
+      if @category.bulletins.blank? && @category.destroy
         redirect_to admin_categories_path, notice: t('.success')
       else
         flash[:alert] = t('.failure')
-        redirect_to admin_categories_path, status: :unprocessable_entity
+        redirect_to admin_categories_path
       end
     end
 

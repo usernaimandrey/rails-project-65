@@ -14,6 +14,7 @@ module Web
 
     def show
       @bulletin = set_bulletin
+      authorize @bulletin
     end
 
     def new
