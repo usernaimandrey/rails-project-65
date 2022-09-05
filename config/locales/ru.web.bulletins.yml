@@ -9,7 +9,7 @@ ru:
         failure: 'Исправте следующие ошибки:'
       list:
         title: Обявления
-      on_moderate:
+      to_moderation:
         success: Объявление отправленно на модерацию
         failure: "Не возможно сменить статус с %{state} на 'На Модерации'"
       new:

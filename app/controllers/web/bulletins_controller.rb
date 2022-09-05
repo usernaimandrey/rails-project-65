@@ -2,7 +2,7 @@
 
 module Web
   class BulletinsController < ApplicationController
-    after_action :verify_authorized, only: %i[new create edit update on_moderate archive]
+    after_action :verify_authorized, only: %i[new create edit update to_moderation archive]
 
     def index
       @search_bulletins = Bulletin.ransack(params[:search_bulletins])
@@ -34,7 +34,7 @@ module Web
       end
     end
 
-    def on_moderate
+    def to_moderation
       @bulletin = set_bulletin
       authorize @bulletin
 

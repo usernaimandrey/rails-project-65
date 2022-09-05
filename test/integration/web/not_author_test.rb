@@ -23,7 +23,7 @@ class Web::NotAuthorTest < ActionDispatch::IntegrationTest
   test "non-author can't send on moderation" do
     user = users(:john)
     sign_in user
-    patch on_moderate_bulletin_path(@bulletin)
+    patch to_moderation_bulletin_path(@bulletin)
     @bulletin.reload
 
     assert_not(@bulletin.under_moderation?)

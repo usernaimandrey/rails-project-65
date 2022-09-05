@@ -72,14 +72,14 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'draft on moderation' do
-    patch on_moderate_bulletin_path(@draft)
+    patch to_moderation_bulletin_path(@draft)
     @draft.reload
 
     assert(@draft.under_moderation?)
   end
 
   test 'rejected on moderation' do
-    patch on_moderate_bulletin_path(@rejected)
+    patch to_moderation_bulletin_path(@rejected)
     @rejected.reload
 
     assert(@rejected.under_moderation?)
@@ -120,13 +120,13 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     delete session_path
     sign_in @user
     bulletin = bulletins(:archived)
-    patch on_moderate_bulletin_path(bulletin)
+    patch to_moderation_bulletin_path(bulletin)
 
     assert(bulletin.archived?)
   end
 
   test 'refute under_moderated published' do
-    patch on_moderate_bulletin_path(@published)
+    patch to_moderation_bulletin_path(@published)
     @published.reload
 
     assert(@published.published?)

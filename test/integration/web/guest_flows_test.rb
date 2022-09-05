@@ -50,7 +50,7 @@ class Web::GuestFlowsTest < ActionDispatch::IntegrationTest
   end
 
   test "guest can't send on moderation" do
-    patch on_moderate_bulletin_path(@bulletin)
+    patch to_moderation_bulletin_path(@bulletin)
     @bulletin.reload
 
     assert_not(@bulletin.under_moderation?)

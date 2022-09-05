@@ -13,7 +13,7 @@ class BulletinPolicy < ApplicationPolicy
     user && record.user == user
   end
 
-  def on_moderate?
+  def to_moderation?
     user && record.user == user && (record.draft? || record.rejected?)
   end
 

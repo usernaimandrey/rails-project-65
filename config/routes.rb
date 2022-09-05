@@ -4,14 +4,14 @@ Rails.application.routes.draw do
   scope module: :web do
     root 'bulletins#index'
 
-    get 'profile', to: 'users#show'
+    resource :user, only: :show, as: :profile
 
     post 'auth/:provider', to: 'auth#request', as: :auth_request
     get 'auth/:provider/callback', to: 'auth#callback', as: :callback_auth
 
     resources :bulletins, only: %i[index show new create edit update] do
       member do
-        patch :on_moderate
+        patch :to_moderation
         patch :archive
       end
     end
