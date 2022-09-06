@@ -12,7 +12,7 @@ module Web
     def destroy
       @bulletin = Bulletin.find(params[:id])
 
-      @bulletin.image.purge
+      # @bulletin.image.purge
       @bulletin.destroy
       redirect_to admin_bulletins_path, notice: t('.success')
     end

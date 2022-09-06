@@ -25,7 +25,7 @@
             td
               = link_to t('.show'), bulletin_path(b), class: 'me-1'
               = link_to t('.destroy'), admin_bulletin_path(b), method: :delete, data: { confirm: t('.question') }, class: 'me-1 text-danger'
-              - unless b.archived?
+              - if b.may_archive?
                 = link_to t('.archive'), archive_admin_bulletin_path(b), method: :patch, data: { confirm: t('.question') }, class: 'me-1 text-danger'
 
 .container.m-2

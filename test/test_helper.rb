@@ -16,6 +16,11 @@ end
 class ActionDispatch::IntegrationTest
   include AuthConcern
 
+  def after_teardown
+    super
+    FileUtils.rm_rf(ActiveStorage::Blob.service.root)
+  end
+
   def sign_in(user, _options = {})
     auth_hash = {
       provider: 'github',

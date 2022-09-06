@@ -3,13 +3,12 @@
 module Web
   class AuthController < ApplicationController
     def callback
-      email = auth[:info][:email].downcase
-      name = auth[:info][:name]
-      user = User.find_or_initialize_by(email: email, name: name)
+      attributes = get_user_attributes(auth)
+      user = User.find_or_initialize_by(attributes)
 
       if user.save
         sign_in(user)
-        flash[:notice] = t('.success', name: name)
+        flash[:notice] = t('.success', name: attributes[:name].capitalize)
       else
         flash[:alert] = t('.failure')
       end

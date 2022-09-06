@@ -5,6 +5,12 @@ module AuthConcern
     session[:user_id] = user.id
   end
 
+  def get_user_attributes(auth)
+    email = auth.info.email.downcase
+    name = auth.info.email.split('@').first.downcase
+    { email: email, name: name }
+  end
+
   def sign_out
     session.delete(:user_id)
     session.clear

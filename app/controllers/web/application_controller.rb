@@ -6,6 +6,7 @@ module Web
     include Pundit::Authorization
 
     rescue_from Pundit::NotAuthorizedError, with: :user_not_author
+
     def authenticate_user!
       return if signed_in?
 
