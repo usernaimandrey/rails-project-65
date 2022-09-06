@@ -7,7 +7,7 @@ ru:
           failure: "Не возможно сменить статус с %{state} на 'В Архиве'"
           success: Объявление заарxивированно
         index:
-          actions: Действиея
+          actions: Действия
           admin_title: Объявления
           archive: Архивировать
           data: Дата публикации

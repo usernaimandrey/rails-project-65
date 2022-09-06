@@ -4,10 +4,10 @@ ru:
     admin:
       home:
         index:
-          admin_title: Объявления на модерации
-          actions: Дейтвия
+          admin_title: Объявление на модерации
+          actions: Действия
           archived: В архив
-          data: Дата публикуции
+          data: Дата публикации
           published: Опубликовать
           name: Название
           rejected: Вернуть
@@ -18,5 +18,5 @@ ru:
       shared:
         nav:
           all_bulletins: Все объявления
-          all_categories: Все ктегории
+          all_categories: Все категории
           moderation: Объявления на модерации
