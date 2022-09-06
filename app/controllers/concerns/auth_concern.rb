@@ -5,10 +5,17 @@ module AuthConcern
     session[:user_id] = user.id
   end
 
-  def get_user_attributes(auth)
+  def auth_user(auth)
     email = auth.info.email.downcase
-    name = auth.info.email.split('@').first.downcase
-    { email: email, name: name }
+    name = auth.info.name
+
+    user = User.find_or_initialize_by(email: email)
+
+    return user if user.persisted?
+
+    user.name = name
+    user.save!
+    user
   end
 
   def sign_out
