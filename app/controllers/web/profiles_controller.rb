@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Web
-  class UsersController < ApplicationController
-    after_action :verify_authorized, only: %i[show]
+  class ProfilesController < ApplicationController
+    before_action :authenticate_user!, only: :show
 
     def show
       @search_bulletins = current_user&.bulletins&.ransack(params[:search_bulletins])
@@ -10,7 +10,6 @@ module Web
                    &.result
                    &.order(created_at: :desc)
                    &.page(params[:page])
-      authorize(:user)
     end
   end
 end

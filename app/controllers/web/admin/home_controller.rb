@@ -7,7 +7,6 @@ module Web
                    .under_moderation
                    .order(created_at: :desc)
                    .page(params[:page])
-      authorize(%i[admin home])
     end
   end
 end

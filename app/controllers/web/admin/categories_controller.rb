@@ -2,20 +2,17 @@
 
 module Web
   class Admin::CategoriesController < Admin::ApplicationController
-    after_action :verify_authorized, only: %i[index new create edit update destroy]
+    after_action :verify_authorized, only: :destroy
 
     def index
       @categories = Category.all.order(created_at: :asc)
-      authorize([:admin, @categories])
     end
 
     def new
-      authorize([:admin, Category])
       @category = Category.new
     end
 
     def create
-      authorize([:admin, Category])
       @category = Category.new(category_params)
 
       if @category.save
@@ -27,12 +24,10 @@ module Web
 
     def edit
       @category = Category.find(params[:id])
-      authorize([:admin, @category])
     end
 
     def update
       @category = Category.find(params[:id])
-      authorize([:admin, @category])
 
       if @category.update(category_params)
         redirect_to admin_categories_path, notice: t('.success')

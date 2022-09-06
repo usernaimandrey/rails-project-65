@@ -1,8 +1,9 @@
 ---
 ru:
   web:
-    users:
+    profiles:
       show:
+        forbidden: Нужно зарегистрироваться или войти на сайт!
         actions: Действия
         archive: В архив
         date: Дата публикации

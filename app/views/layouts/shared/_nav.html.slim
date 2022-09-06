@@ -8,17 +8,16 @@
         ul.nav.nav-pills
           li.nav-item.me-2
            = nav_tab t('.main'), root_path, class: 'navbar-brand', current_page: current_page
-        ul.nav.nav-pills
-          - if policy(Bulletin).new?
+        - if signed_in?
+          ul.nav.nav-pills
             li.nav-item.me-2
               = nav_tab t('.new_bulletin'), new_bulletin_path, class: 'navbar-brand', current_page: current_page
-        ul.nav.nav-pills
-          - if policy(User).show?
+          ul.nav.nav-pills
             li.nav-item.me-2
               = nav_tab t('.profile'), profile_path, class: 'navbar-brand', current_page: current_page
 
       ul.nav.nav-pills
-        - if policy(%i[admin home]).index?
+        - if admin_signed_in?
           li.nav-item.me-2
             = nav_tab t('.admin_nav'), admin_root_path, class: 'navbar-brand', current_page: current_page
         - if signed_in?

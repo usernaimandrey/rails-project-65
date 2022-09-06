@@ -2,7 +2,8 @@
 
 module Web
   class BulletinsController < ApplicationController
-    after_action :verify_authorized, only: %i[new create edit update to_moderation archive]
+    before_action :authenticate_user!, only: %i[new create edit update to_moderation archive]
+    after_action :verify_authorized, only: %i[show edit update to_moderation archive]
 
     def index
       @search_bulletins = Bulletin.ransack(params[:search_bulletins])
@@ -18,13 +19,11 @@ module Web
     end
 
     def new
-      authorize Bulletin
-      @bulletin = Bulletin.new
+      @bulletin = current_user.bulletins.build
     end
 
     def create
-      authorize Bulletin
-      @bulletin = current_user&.bulletins&.build(bulletin_params)
+      @bulletin = current_user.bulletins.build(bulletin_params)
 
       if @bulletin.save
         redirect_to profile_path, notice: t('.success')
@@ -38,7 +37,7 @@ module Web
       @bulletin = set_bulletin
       authorize @bulletin
 
-      if @bulletin.on_moderate!
+      if @bulletin.to_moderate!
         flash[:notice] = t('.success')
         redirect_to profile_path
       else
