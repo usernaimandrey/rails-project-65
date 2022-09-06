@@ -2,8 +2,5 @@
 /* = require_self */
 
 .x-object-fit-cover {
-  height: 200px;
-  /* display: block; */
   object-fit: cover;
-  /* margin: 0 auto; */
 }
