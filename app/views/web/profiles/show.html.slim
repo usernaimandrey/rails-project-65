@@ -1,7 +1,5 @@
 - provide :page_title, t('.profile')
 
-= currently_at t('profile_title')
-
 h2 = t('.my_bulletins')
 = render partial: 'web/shared/search_form', locals: { query: @search_bulletins, url: profile_path }
 = link_to t('.new'), new_bulletin_path, class: 'text-decoration-none'
@@ -14,18 +12,18 @@ table.table
       th[scope="col"] = t('.date')
       th[scope="col"] = t('.actions')
   tbody
-    - @bulletins.each do |b|
+    - @bulletins.each do |bulletin|
         tr
-          td = b.title
-          td = b.aasm.human_state
-          td = distance_of_time_in_words(b.created_at, Time.current)
+          td = bulletin.title
+          td = bulletin.aasm.human_state
+          td = time_ago_in_words(bulletin.created_at)
           td
-            = link_to t('.show'), bulletin_path(b), class: 'me-1'
-            = link_to t('.edit'), edit_bulletin_path(b), class: 'me-1'
-            - if b.may_to_moderate?
-              = link_to t('.to_moderation'), to_moderation_bulletin_path(b), method: :patch, data: { confirm: t('.question') }, class: 'me-1 text-danger'
-            - if b.may_archive?
-              = link_to t('.archive'), archive_bulletin_path(b), method: :patch, data: { confirm: t('.question') }, class: 'me-1 text-danger'
+            = link_to t('.show'), bulletin_path(bulletin), class: 'me-1'
+            = link_to t('.edit'), edit_bulletin_path(bulletin), class: 'me-1'
+            - if bulletin.may_to_moderate?
+              = link_to t('.to_moderation'), to_moderation_bulletin_path(bulletin), method: :patch, data: { confirm: t('.question') }, class: 'me-1 text-danger'
+            - if bulletin.may_archive?
+              = link_to t('.archive'), archive_bulletin_path(bulletin), method: :patch, data: { confirm: t('.question') }, class: 'me-1 text-danger'
 
 .container.m-2
   = paginate @bulletins, views_prefix: 'web'

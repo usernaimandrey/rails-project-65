@@ -1,7 +1,5 @@
 - provide :page_title, t('.title')
 
-= currently_at t('admin')
-
 .d-flex
   = render partial: 'web/admin/shared/nav'
   .d-flex.flex-column.w-100
@@ -15,14 +13,14 @@
           th[scope="col"] = t('.actions')
 
       tbody
-        - @bulletins.each do |b|
+        - @bulletins.each do |bulletin|
           tr
-            td = link_to b.title, b, class: 'text-decoration-none'
-            td = formatted_time_creation(b.created_at)
+            td = link_to bulletin.title, bulletin, class: 'text-decoration-none'
+            td = time_ago_in_words(bulletin.created_at)
             td
-              = link_to t('.published'), publish_admin_bulletin_path(b), method: :patch, data: { confirm: t('.question') }, class: 'me-1'
-              = link_to t('.rejected'), reject_admin_bulletin_path(b), method: :patch, data: { confirm: t('.question') }, class: 'me-1'
-              = link_to t('.archived'), archive_admin_bulletin_path(b), method: :patch, data: { confirm: t('.question') }, class: 'me-1 text-danger'
+              = link_to t('.published'), publish_admin_bulletin_path(bulletin), method: :patch, data: { confirm: t('.question') }, class: 'me-1'
+              = link_to t('.rejected'), reject_admin_bulletin_path(bulletin), method: :patch, data: { confirm: t('.question') }, class: 'me-1'
+              = link_to t('.archived'), archive_admin_bulletin_path(bulletin), method: :patch, data: { confirm: t('.question') }, class: 'me-1 text-danger'
 
 .container.m-2
   = paginate @bulletins, views_prefix: 'web'

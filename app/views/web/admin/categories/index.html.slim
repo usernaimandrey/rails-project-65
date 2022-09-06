@@ -1,7 +1,5 @@
 - provide :page_title, t('.title')
 
-= currently_at t('admin')
-
 .d-flex
   = render partial: 'web/admin/shared/nav'
   .d-flex.flex-column.w-100
@@ -16,10 +14,10 @@
           th[scope="col"] = t('.name')
           th[scope="col"] = t('.action')
       tbody
-        - @categories.each do |c|
+        - @categories.each do |category|
           tr
-            td = c.id
-            td = c.name
+            td = category.id
+            td = category.name
             td
-              = link_to t('.edit'), edit_admin_category_path(c), class: 'me-1'
-              = link_to t('.destroy'), admin_category_path(c), method: :delete, data: { confirm: t('.question') }, class: 'me-1 text-danger'
+              = link_to t('.edit'), edit_admin_category_path(category), class: 'me-1'
+              = link_to t('.destroy'), admin_category_path(category), method: :delete, data: { confirm: t('.question') }, class: 'me-1 text-danger'

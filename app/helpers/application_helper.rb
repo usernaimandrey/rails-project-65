@@ -8,26 +8,21 @@ module ApplicationHelper
     page_title.present? ? "#{base_title} | #{page_title}" : base_title
   end
 
-  def formatted_time_creation(to_time)
-    from_time = Time.current
-    distance_of_time_in_words(from_time, to_time)
+  def nav_tab(text, path, options = {})
+    css_class = if current_page?(options[:current])
+                  "#{options[:class]} #{options[:active]}"
+                else
+                  "#{options[:class]} #{options[:passive]}"
+                end
+
+    link_to text, path, class: css_class
   end
 
-  def nav_tab(title, url, options = {})
-    current_page = options.delete :current_page
+  def transfer_current_page
+    return admin_root_path if current_page?(admin_root_path)
 
-    css_class = current_page == title ? 'text-primary' : 'text-secondary'
+    return admin_categories_path if current_page?(admin_categories_path)
 
-    options[:class] = if options[:class]
-                        "#{options[:class]} #{css_class}"
-                      else
-                        css_class
-                      end
-
-    link_to title, url, options
-  end
-
-  def currently_at(current_page = '')
-    render partial: 'layouts/shared/nav', locals: { current_page: current_page }
+    admin_bulletins_path
   end
 end

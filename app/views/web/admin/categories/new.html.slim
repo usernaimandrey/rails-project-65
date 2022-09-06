@@ -1,9 +1,7 @@
 - provide :page_title, t('.title')
 
-= currently_at t('admin')
-
 .d-flex.row
   .col-md-3
     = render 'web/admin/shared/nav'
   .col-md-9
-    = render partial: 'web/admin/categories/form', locals: { category: @category, url: admin_categories_path }
+    = render partial: 'web/admin/categories/form', locals: { category: @category }
