@@ -3,7 +3,7 @@
 
 .x-object-fit-cover {
   height: 200px;
-  display: block;
-  object-fit: fill;
-  margin: 0 auto;
+  /* display: block; */
+  object-fit: cover;
+  /* margin: 0 auto; */
 }
