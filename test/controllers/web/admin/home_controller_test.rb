@@ -3,8 +3,8 @@
 require 'test_helper'
 
 class Web::Admin::HomeControllerTest < ActionDispatch::IntegrationTest
-  test 'admin should get index' do
-    admin = users(:andrey)
+  test '#index' do
+    admin = users(:admin)
     sign_in admin
     get admin_root_path
 
@@ -12,10 +12,11 @@ class Web::Admin::HomeControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'user should not get index' do
-    user = users(:john)
+    user = users(:user)
     sign_in user
     get admin_root_path
 
     assert_response :redirect
+    assert_redirected_to root_path
   end
 end

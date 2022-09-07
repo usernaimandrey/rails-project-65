@@ -1,9 +1,9 @@
-andrey:
+admin:
   name: Andrey
   email: andrey@mail.ru
   admin: true
 
-john:
+user:
   name: John
   email: john@gmail.com
   admin: false

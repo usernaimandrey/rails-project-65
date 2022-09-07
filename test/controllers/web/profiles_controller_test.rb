@@ -2,9 +2,9 @@
 
 require 'test_helper'
 
-class Web::UsersControllerTest < ActionDispatch::IntegrationTest
-  test 'signin user should get profile' do
-    user = users(:andrey)
+class Web::ProfilesControllerTest < ActionDispatch::IntegrationTest
+  test '#show' do
+    user = users(:user)
     sign_in user
     get profile_path
 
@@ -15,5 +15,6 @@ class Web::UsersControllerTest < ActionDispatch::IntegrationTest
     get profile_path
 
     assert_response :redirect
+    assert_redirected_to root_path
   end
 end

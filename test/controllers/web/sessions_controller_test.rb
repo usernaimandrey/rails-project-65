@@ -4,7 +4,7 @@ require 'test_helper'
 
 class Web::SessionsControllerTest < ActionDispatch::IntegrationTest
   test '#destroy' do
-    user = users(:john)
+    user = users(:user)
     sign_in user
 
     assert(signed_in?)
@@ -13,5 +13,6 @@ class Web::SessionsControllerTest < ActionDispatch::IntegrationTest
 
     assert_not(signed_in?)
     assert_response :redirect
+    assert_redirected_to root_path
   end
 end

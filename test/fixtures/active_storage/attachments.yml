@@ -8,17 +8,12 @@ published_image:
   record: published (Bulletin)
   blob: image_blob_1
 
-rejected_image:
+under_moderation_image:
   name: image
-  record: rejected (Bulletin)
+  record: under_moderation (Bulletin)
   blob: image_blob_1
 
 archived_image:
   name: image
   record: archived (Bulletin)
-  blob: image_blob_1
-
-under_moderation_image:
-  name: image
-  record: under_moderation (Bulletin)
   blob: image_blob_1
