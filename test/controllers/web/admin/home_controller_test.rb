@@ -16,7 +16,6 @@ class Web::Admin::HomeControllerTest < ActionDispatch::IntegrationTest
     sign_in user
     get admin_root_path
 
-    assert_response :redirect
     assert_redirected_to root_path
   end
 end

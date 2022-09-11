@@ -14,7 +14,6 @@ class Web::ProfilesControllerTest < ActionDispatch::IntegrationTest
   test 'guest can not get profile' do
     get profile_path
 
-    assert_response :redirect
     assert_redirected_to root_path
   end
 end

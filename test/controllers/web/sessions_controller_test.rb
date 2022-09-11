@@ -12,7 +12,6 @@ class Web::SessionsControllerTest < ActionDispatch::IntegrationTest
     delete session_path
 
     assert_not(signed_in?)
-    assert_response :redirect
     assert_redirected_to root_path
   end
 end

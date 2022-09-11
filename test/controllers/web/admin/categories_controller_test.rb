@@ -53,7 +53,6 @@ class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
     update_category = Category.find_by(@attrs)
     @category.reload
 
-    assert_response :redirect
     assert_redirected_to admin_categories_path
     assert { update_category.name == @attrs[:name] }
   end
@@ -62,7 +61,6 @@ class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
     category = categories(:no_relation)
     delete admin_category_path(category)
 
-    assert_response :redirect
     assert_redirected_to admin_categories_path
     assert_not(Category.find_by(name: category.name))
   end
@@ -70,7 +68,6 @@ class Web::Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
   test "can't delete a category that has a relation" do
     delete admin_category_path(@category)
 
-    assert_response :redirect
     assert_redirected_to admin_categories_path
     assert { Category.find_by(name: @category.name) }
   end

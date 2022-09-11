@@ -37,7 +37,6 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     delete session_path
     get new_bulletin_path
 
-    assert_response :redirect
     assert_redirected_to root_path
   end
 
@@ -46,7 +45,6 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     new_bulletin = @user.bulletins.find_by(@attrs.except(:image))
 
     assert { new_bulletin }
-    assert_response :redirect
     assert_redirected_to profile_path
   end
 
@@ -71,7 +69,6 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     @draft.reload
 
     assert { @draft.title == attr[:title] }
-    assert_response :redirect
     assert_redirected_to profile_path
   end
 
@@ -93,7 +90,6 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     patch bulletin_path(bulletin), params: { bulletin: attr }
 
     assert_not(bulletin.title == attr[:title])
-    assert_response :redirect
     assert_redirected_to root_path
   end
 
@@ -101,7 +97,6 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     patch to_moderation_bulletin_path(@draft)
     @draft.reload
 
-    assert_response :redirect
     assert_redirected_to profile_path
     assert { @draft.under_moderation? }
   end

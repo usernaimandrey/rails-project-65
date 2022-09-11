@@ -21,14 +21,12 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     sign_in user
     get admin_bulletins_path
 
-    assert_response :redirect
     assert_redirected_to root_path
   end
 
   test '#destroy' do
     delete admin_bulletin_path(@draft)
 
-    assert_response :redirect
     assert_redirected_to admin_bulletins_path
     assert_not(Bulletin.find_by(id: @draft.id))
   end
@@ -38,7 +36,6 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     patch reject_admin_bulletin_path(bulletin)
     bulletin.reload
 
-    assert_response :redirect
     assert_redirected_to admin_root_path
     assert { bulletin.rejected? }
   end
@@ -48,7 +45,6 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     patch publish_admin_bulletin_path(bulletin)
     bulletin.reload
 
-    assert_response :redirect
     assert_redirected_to admin_root_path
     assert { bulletin.published? }
   end
@@ -57,7 +53,6 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     patch archive_admin_bulletin_path(@draft)
     @draft.reload
 
-    assert_response :redirect
     assert_redirected_to admin_bulletins_path
     assert { @draft.archived? }
   end
