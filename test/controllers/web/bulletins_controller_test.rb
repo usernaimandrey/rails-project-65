@@ -83,8 +83,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
 
   test 'update bulletin only author' do
     bulletin = bulletins(:published)
-    assert { bulletin.user.name == 'Andrey' }
-    assert { current_user.name == 'John' }
+    assert_not(bulletin.user.name == current_user.name)
 
     attr = { title: Faker::Lorem.sentence(word_count: 3) }
     patch bulletin_path(bulletin), params: { bulletin: attr }
