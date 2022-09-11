@@ -11,10 +11,8 @@ module AuthConcern
 
     user = User.find_or_initialize_by(email: email)
 
-    return user if user.persisted?
-
     user.name = name
-    user.save!
+    user.save
     user
   end
 

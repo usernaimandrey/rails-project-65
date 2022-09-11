@@ -19,7 +19,7 @@ namespace :env do
     gitignore.print(".env\n") unless content_gitignore.include?(".env\n")
     gitignore.close
 
-    print ".env file was generated and and added .gitignore\n"
+    print ".env file was generated and added .gitignore\n"
     print "#{'#' * 5} Task Done! #{'#' * 5}\n"
   end
 end
