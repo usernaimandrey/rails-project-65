@@ -21,10 +21,10 @@ module Web
 
       if @bulletin.archive!
         flash[:notice] = t('.success')
-        redirect_to url_for(action: 'index')
+        redirect_to action: 'index'
       else
         flash[:alert] = t('.failure', state: @bulletin.aasm.human_state)
-        redirect_to url_for(action: 'index'), status: :unprocessable_entity
+        redirect_to action: 'index', status: :unprocessable_entity
       end
     end
 
@@ -33,10 +33,10 @@ module Web
 
       if @bulletin.publish!
         flash[:notice] = t('.success')
-        redirect_to url_for(action: 'index')
+        redirect_to admin_root_path
       else
         flash[:alert] = t('.failure', state: @bulletin.aasm.human_state)
-        redirect_to url_for(action: 'index'), status: :unprocessable_entity
+        redirect_to admin_root_path, status: :unprocessable_entity
       end
     end
 
@@ -45,10 +45,10 @@ module Web
 
       if @bulletin.reject!
         flash[:notice] = t('.success')
-        redirect_to url_for(action: 'index')
+        redirect_to admin_root_path
       else
         flash[:alert] = t('.failure', state: @bulletin.aasm.human_state)
-        redirect_to url_for(action: 'index'), status: :unprocessable_entity
+        redirect_to admin_root_path, status: :unprocessable_entity
       end
     end
   end

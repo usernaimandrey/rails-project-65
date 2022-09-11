@@ -39,7 +39,7 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     bulletin.reload
 
     assert_response :redirect
-    assert_redirected_to admin_bulletins_path
+    assert_redirected_to admin_root_path
     assert { bulletin.rejected? }
   end
 
@@ -49,7 +49,7 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     bulletin.reload
 
     assert_response :redirect
-    assert_redirected_to admin_bulletins_path
+    assert_redirected_to admin_root_path
     assert { bulletin.published? }
   end
 

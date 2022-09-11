@@ -18,7 +18,7 @@ module Web
     def category_has_relation
       flash[:alert] = t('.has_relations')
 
-      redirect_to url_for(action: 'index')
+      redirect_to action: 'index'
     end
   end
 end
