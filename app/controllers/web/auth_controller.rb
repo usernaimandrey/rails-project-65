@@ -5,7 +5,7 @@ module Web
     def callback
       user = auth_user(auth)
 
-      if user.persisted?
+      if user.save
         sign_in(user)
         flash[:notice] = t('.success', name: auth.info.name)
       else
