@@ -18,7 +18,7 @@ module ApplicationHelper
     link_to text, path, class: css_class
   end
 
-  def transfer_current_page
+  def convert_current_page
     return admin_root_path if current_page?(admin_root_path)
 
     return admin_categories_path if current_page?(admin_categories_path)

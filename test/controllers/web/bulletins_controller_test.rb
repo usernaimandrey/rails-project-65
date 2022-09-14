@@ -100,6 +100,14 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert { @draft.under_moderation? }
   end
 
+  test 'draft on archive' do
+    patch archive_bulletin_path(@draft)
+    @draft.reload
+
+    assert_redirected_to profile_path
+    assert { @draft.archived? }
+  end
+
   test 'refute under_moderated archive' do
     bulletin = bulletins(:archived)
     patch to_moderation_bulletin_path(bulletin)

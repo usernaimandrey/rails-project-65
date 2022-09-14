@@ -18,7 +18,7 @@
     ul.nav.nav-pills
       - if admin_signed_in?
         li.nav-item.me-2
-          = nav_tab t('.admin_nav'), admin_root_path, current: transfer_current_page, class: 'navbar-brand', active: 'text-primary', passive: 'text-secondary'
+          = nav_tab t('.admin_nav'), admin_root_path, current: convert_current_page, class: 'navbar-brand', active: 'text-primary', passive: 'text-secondary'
       - if signed_in?
         li.nav-item.me-2
           = link_to t('.sign_out'), session_path, method: :delete, class: 'navbar-brand text-danger'

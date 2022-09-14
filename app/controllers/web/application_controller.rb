@@ -10,7 +10,7 @@ module Web
     def authenticate_user!
       return if signed_in?
 
-      flash[:aler] = t('.forbidden')
+      flash[:alert] = t('.forbidden')
       redirect_to root_path
     end
 

@@ -14,7 +14,7 @@ module Web
     end
 
     def show
-      @bulletin = set_bulletin
+      @bulletin = find_bulletin
       authorize @bulletin
     end
 
@@ -34,7 +34,7 @@ module Web
     end
 
     def to_moderation
-      @bulletin = set_bulletin
+      @bulletin = find_bulletin
       authorize @bulletin
 
       if @bulletin.to_moderate!
@@ -47,7 +47,7 @@ module Web
     end
 
     def archive
-      @bulletin = set_bulletin
+      @bulletin = find_bulletin
       authorize @bulletin
 
       if @bulletin.archive!
@@ -60,12 +60,12 @@ module Web
     end
 
     def edit
-      @bulletin = set_bulletin
+      @bulletin = find_bulletin
       authorize @bulletin
     end
 
     def update
-      @bulletin = set_bulletin
+      @bulletin = find_bulletin
       authorize @bulletin
 
       if @bulletin.update(bulletin_params)
@@ -82,7 +82,7 @@ module Web
       params.require(:bulletin).permit(:title, :description, :category_id, :image)
     end
 
-    def set_bulletin
+    def find_bulletin
       Bulletin.find(params[:id])
     end
   end
