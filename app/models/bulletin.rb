@@ -8,6 +8,9 @@ class Bulletin < ApplicationRecord
   belongs_to :user
   belongs_to :category
 
+  has_many :favorites, class_name: 'Favorite', dependent: :destroy
+  has_many :favorite_users, through: :favorites, source: :user
+
   validates :title, :description, presence: true
   validates :title, length: { minimum: 3, maximum: 50 }
   validates :description, length: { maximum: 1000 }

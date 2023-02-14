@@ -1,6 +1,6 @@
 = render partial: 'web/shared/search_form', locals: { query: @search_bulletins, url: bulletins_path }
 
-= render partial: 'web/bulletins/list', locals: { bulletins: @bulletins }
+= render partial: 'web/bulletins/list', locals: { bulletins: @bulletins, favorite_bulletins: @favorite_bulletins, favorites: @favorites }
 
 .container.m-2
   = paginate @bulletins, views_prefix: 'web'

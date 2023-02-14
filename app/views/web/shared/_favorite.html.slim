@@ -1,0 +1,6 @@
+- if favorite_bulletin.present?
+  = link_to bulletin_favorite_path(favorite_bulletin, favorites.find { |f| f.user_id == current_user.id && f.bulletin_id == favorite_bulletin.id }), method: :delete
+    i.fa-solid.fa-heart
+-else
+  = link_to bulletin_favorites_path(bulletin), method: :post
+    i.fa-regular.fa-heart

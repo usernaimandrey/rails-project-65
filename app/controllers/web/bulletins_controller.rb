@@ -11,6 +11,8 @@ module Web
                    .result
                    .published.order(created_at: :desc)
                    .page(params[:page])
+      @favorite_bulletins = current_user&.favorite_bulletins
+      @favorites = current_user&.favorites
     end
 
     def show

@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     get 'auth/:provider/callback', to: 'auth#callback', as: :callback_auth
 
     resources :bulletins, only: %i[index show new create edit update] do
+      scope module: :bulletins do
+        resources :favorites, only: %i[create destroy]
+      end
       member do
         patch :to_moderation
         patch :archive
