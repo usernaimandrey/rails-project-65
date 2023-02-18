@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Web::Bulletins::FavoritesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:user)
