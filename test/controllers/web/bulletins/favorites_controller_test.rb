@@ -29,4 +29,16 @@ class Web::Bulletins::FavoritesControllerTest < ActionDispatch::IntegrationTest
     assert { !favorite_bulletin }
     assert_redirected_to root_path
   end
+
+  # test 'author dont add in favorite' do
+  #   sign_in @user
+
+  #   bulletin = bulletins(:no_favorite)
+
+  #   post bulletin_favorites_path(bulletin)
+  #   favorite = @user.favorite_bulletins.find_by(id: bulletin.id)
+
+  #   assert { !favorite }
+  #   assert_redirected_to root_path
+  # end
 end

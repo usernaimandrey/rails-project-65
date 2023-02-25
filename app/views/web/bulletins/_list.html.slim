@@ -13,7 +13,7 @@ hr
             = link_to bulletin do
               span = bulletin.title.truncate(30)
           div = time_ago_in_words(bulletin.created_at)
-          - if signed_in?
+          - if signed_in? && bulletin.user_id != current_user.id
             div
               = render partial: 'web/shared/favorite',
                 locals: { favorite_bulletin: favorite_bulletins.find { |b| b.user_id == current_user.id }, favorites: favorites, bulletin: bulletin }
